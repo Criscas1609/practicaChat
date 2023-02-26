@@ -12,6 +12,7 @@ import java.net.Socket;
 
 public class ClientChat {
     private static Socket socket;
+    static TextArea textArea = new TextArea();
 
     public static void conection(String host, String puerto, String username, TextField inputText, ActionEvent event) {
         try {
@@ -23,8 +24,10 @@ public class ClientChat {
         new ServerConection(socket, inputText,username);
         ServerConection.accion();
     }
+    public static void getData(TextArea text){
+        textArea = text;
+    }
     public static void recibirMensajesServidor(){
-        TextArea textArea = new TextArea();
         // Obtiene el flujo de entrada del socket
         DataInputStream entradaDatos = null;
         String mensaje;

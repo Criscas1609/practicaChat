@@ -20,14 +20,20 @@ public class ClientViewController implements Initializable {
     String host;
     static String port;
     @FXML
+    private Label chatArea;
+    @FXML
     private TextArea chatText;
 
     @FXML
     private TextField inputText;
 
+
     @FXML
     void sendText(ActionEvent event) {
+        ClientChat.getData(chatText);
         ClientChat.conection(host, port,username,inputText,event);
+        ChatUtilities hilo1 = new ChatUtilities();
+        hilo1.start();
     }
 
 
